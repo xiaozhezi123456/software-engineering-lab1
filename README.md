@@ -3,7 +3,7 @@
 [![CI](https://github.com/xiaozhezi123456/software-engineering-lab1/actions/workflows/ci.yml/badge.svg)](https://github.com/xiaozhezi123456/software-engineering-lab1/actions/workflows/ci.yml)
 
 软件工程实验一示例项目：以“学生成绩管理系统”为载体，实践 Git 版本控制与基于
-Issue / Pull Request 的协作开发流程。
+Issue / Pull Request 的协作开发流程。最终版本 v1.0.0。
 
 - 远程仓库：https://github.com/xiaozhezi123456/software-engineering-lab1
 - Issues：https://github.com/xiaozhezi123456/software-engineering-lab1/issues
@@ -11,9 +11,16 @@ Issue / Pull Request 的协作开发流程。
 - Actions：https://github.com/xiaozhezi123456/software-engineering-lab1/actions
 - Releases：https://github.com/xiaozhezi123456/software-engineering-lab1/releases
 
+## 功能
+
+- 学生信息与课程成绩的录入、校验与查询；
+- 成绩册的 JSON 持久化（保存 / 读取）；
+- 课程平均分、及格率、学生排名等统计；
+- 命令行入口与成绩单文本报表。
+
 ## 目录结构
 
-- `grade_manager/`：项目源码
+- `grade_manager/`：项目源码（models / storage / stats / report / cli）
 - `tests/`：单元测试
 - `docs/`：Issue 清单、Sprint 计划、PR 记录
 - `.github/`：CI 工作流、Issue 与 PR 模板
@@ -36,4 +43,5 @@ Issue / Pull Request 的协作开发流程。
 git clone https://github.com/xiaozhezi123456/software-engineering-lab1.git
 cd software-engineering-lab1
 python -m unittest discover -s tests -v
+python -m grade_manager.cli
 ```
