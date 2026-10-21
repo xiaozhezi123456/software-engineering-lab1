@@ -1,4 +1,4 @@
-"""成绩统计单元测试（Issue #3）。"""
+"""成绩统计单元测试（Issue #3、#4）。"""
 
 import unittest
 
@@ -36,6 +36,12 @@ class StatsTest(unittest.TestCase):
         rows = ranking(book)
         self.assertEqual([row["student_id"] for row in rows], ["20240101", "20240103", "20240102"])
         self.assertEqual([row["rank"] for row in rows], [1, 2, 3])
+
+    def test_empty_scores(self):
+        """Issue #4：空成绩列表不应抛出除零异常。"""
+        self.assertEqual(average([]), 0.0)
+        self.assertEqual(pass_rate([]), 0.0)
+        self.assertEqual(course_average(make_book(), "数据库原理"), 0.0)
 
 
 if __name__ == "__main__":

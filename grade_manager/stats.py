@@ -4,12 +4,16 @@ from .models import GradeBook
 
 
 def average(scores: list[float]) -> float:
-    """计算平均分。"""
+    """计算平均分；当成绩列表为空时返回 0.0（Issue #4 修复）。"""
+    if not scores:
+        return 0.0
     return sum(scores) / len(scores)
 
 
 def pass_rate(scores: list[float], pass_line: float = 60.0) -> float:
-    """计算及格率。"""
+    """计算及格率；当成绩列表为空时返回 0.0（Issue #4 修复）。"""
+    if not scores:
+        return 0.0
     return sum(1 for score in scores if score >= pass_line) / len(scores)
 
 
